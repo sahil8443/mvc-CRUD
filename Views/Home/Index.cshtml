@@ -1,0 +1,30 @@
+﻿@model List<demo.Models.User>
+
+<h2>User List</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No users found.</p>
+}
+
+<a asp-action="Create">Add New User</a>
